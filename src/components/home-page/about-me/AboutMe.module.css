@@ -44,11 +44,6 @@ p {
     transform: translateY(-2px);
 }
 
-.socials img {
-    width: clamp(32px, 5vw, 48px);
-    height: clamp(32px, 5vw, 48px);
-}
-
 @media (max-width: 768px) {
     .content {
         flex-direction: column;

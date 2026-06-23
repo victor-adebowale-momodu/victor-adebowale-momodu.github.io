@@ -30,3 +30,22 @@ body {
     padding-inline: var(--gutter);
     margin-inline: auto;
 }
+
+.headingLink {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+.heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.headingLink:hover {
+    transform: translateY(-2px);
+    text-decoration: underline;
+}

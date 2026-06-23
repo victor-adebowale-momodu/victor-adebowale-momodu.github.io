@@ -1,0 +1,16 @@
+---
+import styles from "./Projects.module.css";
+import linkIcon from "../../../assets/link.svg?raw";
+import IconSecondary from "../../../components/icons/IconSecondary.astro";
+---
+
+<section class={styles.projects}>
+    <div class="container">
+        <a href="/projects" class="headingLink">
+            <h2 class="heading">
+                Projects
+                <IconSecondary icon={linkIcon} alt="Link" size="small" />
+            </h2>
+        </a>
+    </div>
+</section>

@@ -1,13 +1,21 @@
 ---
 import styles from "./AboutMe.module.css";
-import githubIcon from "../../assets/github.svg";
-import linkedinIcon from "../../assets/linkedin.svg";
-import twitterIcon from "../../assets/twitter.svg";
-import emailIcon from "../../assets/email.svg";
+import githubIcon from "../../../assets/github.svg?raw";
+import linkedinIcon from "../../../assets/linkedin.svg?raw";
+import twitterIcon from "../../../assets/twitter.svg?raw";
+import emailIcon from "../../../assets/email.svg?raw";
+import linkIcon from "../../../assets/link.svg?raw";
+import IconPrimary from "../../icons/IconPrimary.astro";
 ---
 
 <section class={styles.aboutMe}>
     <div class="container">
+        <a href="/about-me" class="headingLink">
+            <h2 class="heading">
+                About Me
+                <IconPrimary icon={linkIcon} alt="Link" size="small" />
+            </h2>
+        </a>
         <div class={styles.content}>
             <div class={styles.left}>
                 <p>
@@ -36,7 +44,7 @@ import emailIcon from "../../assets/email.svg";
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img src={githubIcon.src} alt="GitHub" />
+                        <IconPrimary icon={githubIcon} alt="GitHub" />
                     </a>
 
                     <a
@@ -44,7 +52,7 @@ import emailIcon from "../../assets/email.svg";
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img src={linkedinIcon.src} alt="LinkedIn" />
+                        <IconPrimary icon={linkedinIcon} alt="LinkedIn" />
                     </a>
 
                     <a
@@ -52,7 +60,7 @@ import emailIcon from "../../assets/email.svg";
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img src={twitterIcon.src} alt="Twitter" />
+                        <IconPrimary icon={twitterIcon} alt="Twitter" />
                     </a>
 
                     <a
@@ -60,7 +68,7 @@ import emailIcon from "../../assets/email.svg";
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <img src={emailIcon.src} alt="Email" />
+                        <IconPrimary icon={emailIcon} alt="Email" />
                     </a>
                 </div>
             </div>
