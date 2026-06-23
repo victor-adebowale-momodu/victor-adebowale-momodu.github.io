@@ -1,7 +1,7 @@
 @import "@fontsource-variable/jetbrains-mono";
 
 :root {
-    --color-primary: #faf9f5;
+    --color-primary: #f8f8f6;
     --color-secondary: #171614;
     --max-width: 1440px;
     --gutter: clamp(1rem, 5vw, 3rem);

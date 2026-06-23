@@ -1,5 +1,9 @@
 ---
 import styles from "./AboutMe.module.css";
+import githubIcon from "../../assets/github.svg";
+import linkedinIcon from "../../assets/linkedin.svg";
+import twitterIcon from "../../assets/twitter.svg";
+import emailIcon from "../../assets/email.svg";
 ---
 
 <section class={styles.aboutMe}>
@@ -26,10 +30,39 @@ import styles from "./AboutMe.module.css";
                     thinking to every project.
                 </p>
 
-                <p>
-                    Clean code, thoughtful systems, and products built with
-                    intention.
-                </p>
+                <div class={styles.socials}>
+                    <a
+                        href="https://github.com/victor-adebowale-momodu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src={githubIcon.src} alt="GitHub" />
+                    </a>
+
+                    <a
+                        href="https://linkedin.com/in/victor-adebowale-momodu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src={linkedinIcon.src} alt="LinkedIn" />
+                    </a>
+
+                    <a
+                        href="https://twitter.com/victoramomodu"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src={twitterIcon.src} alt="Twitter" />
+                    </a>
+
+                    <a
+                        href="mailto:victoramomodu@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img src={emailIcon.src} alt="Email" />
+                    </a>
+                </div>
             </div>
         </div>
     </div>
