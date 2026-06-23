@@ -1,6 +1,6 @@
 ---
-import Header from "../components/Header.astro";
-import styles from "./BaseLayout.module.css";
+import "../styles/global.css";
+import Header from "../components/header/Header.astro";
 ---
 
 <!doctype html>
@@ -12,8 +12,10 @@ import styles from "./BaseLayout.module.css";
         <meta name="generator" content={Astro.generator} />
         <title>Victor Adebowale Momodu</title>
     </head>
-    <body class={styles.body}>
-        <Header />
-        <slot />
+    <body>
+        <div>
+            <Header />
+            <slot />
+        </div>
     </body>
 </html>

@@ -1,0 +1,17 @@
+---
+import styles from "./Hero.module.css";
+---
+
+<section class={styles.hero}>
+    <div class="container">
+        <blockquote class={styles.quoteBlock}>
+            <p id="quote-text">Loading...</p>
+            <cite id="quote-author"></cite>
+        </blockquote>
+    </div>
+</section>
+
+<script>
+    import { generateRandomQuote } from "./quotes.js";
+    generateRandomQuote();
+</script>

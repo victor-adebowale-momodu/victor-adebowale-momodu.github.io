@@ -1,0 +1,32 @@
+@import "@fontsource-variable/jetbrains-mono";
+
+:root {
+    --color-primary: #faf9f5;
+    --color-secondary: #171614;
+    --max-width: 1440px;
+    --gutter: clamp(1rem, 5vw, 3rem);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: "JetBrains Mono Variable", monospace;
+    line-height: 1.5;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    max-width: var(--max-width);
+    padding-inline: var(--gutter);
+    margin-inline: auto;
+}
