@@ -1,0 +1,30 @@
+.aboutMe {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: clamp(4rem, 8vw, 8rem);
+}
+
+.content {
+    display: flex;
+    gap: clamp(2rem, 6vw, 8rem);
+}
+
+.left,
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+p {
+    margin: 0;
+    font-size: clamp(1rem, 1.4vw, 1.25rem);
+    line-height: 1.7;
+    max-width: 60ch;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+}
