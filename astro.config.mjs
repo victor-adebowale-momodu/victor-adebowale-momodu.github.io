@@ -9,12 +9,11 @@ import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-    output: "static",
     site: "https://victor-adebowale-momodu.github.io/",
     integrations: [
         react(),
         markdoc(),
-        // keystatic(),
+        keystatic(),
     ],
 
     adapter: node({
