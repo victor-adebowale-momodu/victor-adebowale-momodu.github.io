@@ -1,17 +1,37 @@
 ---
 import styles from "./Hero.module.css";
+import { getCollection } from "astro:content";
+
+interface Quote {
+    text: string;
+    author: string;
+}
+
+const quotesCollection = await getCollection("quotes");
+const quotes: Quote[] = quotesCollection.map((quote) => quote.data);
 ---
 
 <section class={styles.hero}>
     <div class="container">
         <blockquote class={styles.quoteBlock}>
-            <p id="quote-text">Loading...</p>
+            <p id="quote-text">
+                {quotes.length === 0 ? "No quotes yet." : "Loading..."}
+            </p>
             <cite id="quote-author"></cite>
         </blockquote>
     </div>
 </section>
 
-<script>
-    import { generateRandomQuote } from "./quotes.js";
+<script is:inline define:vars={{ quotes }}>
+    function generateRandomQuote() {
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        const textEl = document.getElementById("quote-text");
+        const authorEl = document.getElementById("quote-author");
+        if (textEl && authorEl) {
+            textEl.innerText = `"${randomQuote.text}"`;
+            authorEl.innerText = randomQuote.author;
+        }
+    }
+
     generateRandomQuote();
 </script>
