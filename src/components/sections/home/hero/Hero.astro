@@ -2,13 +2,8 @@
 import styles from "./Hero.module.css";
 import { getCollection } from "astro:content";
 
-interface Quote {
-    text: string;
-    author: string;
-}
-
 const quotesCollection = await getCollection("quotes");
-const quotes: Quote[] = quotesCollection.map((quote) => quote.data);
+const quotes = quotesCollection.map((quote) => quote.data);
 ---
 
 <section class={styles.hero}>
