@@ -5,8 +5,6 @@ import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
 
-import node from "@astrojs/node";
-
 // https://astro.build/config
 export default defineConfig({
     site: "https://victor-adebowale-momodu.github.io/",
@@ -15,8 +13,4 @@ export default defineConfig({
         markdoc(),
         ...(process.env.SKIP_KEYSTATIC ? [] : [keystatic()]),
     ],
-
-    adapter: node({
-        mode: "standalone",
-    }),
 });
