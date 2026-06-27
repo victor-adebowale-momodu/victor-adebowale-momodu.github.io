@@ -5,7 +5,30 @@ import linkedinIcon from "@/assets/linkedin.svg?raw";
 import twitterIcon from "@/assets/twitter.svg?raw";
 import emailIcon from "@/assets/email.svg?raw";
 import linkIcon from "@/assets/link.svg?raw";
-import IconPrimary from "@/components/icons/IconPrimary.astro";
+import ThemedIcon from "@/components/icons/ThemedIcon.astro";
+
+const socialLinks = [
+    {
+        icon: githubIcon,
+        alt: "GitHub",
+        url: "https://github.com/victor-adebowale-momodu",
+    },
+    {
+        icon: linkedinIcon,
+        alt: "LinkedIn",
+        url: "https://linkedin.com/in/victor-adebowale-momodu",
+    },
+    {
+        icon: twitterIcon,
+        alt: "Twitter",
+        url: "https://twitter.com/victor-adebowale-momodu",
+    },
+    {
+        icon: emailIcon,
+        alt: "Email",
+        url: "mailto:victor@adebowale-momodu.com",
+    },
+];
 ---
 
 <section class={styles.aboutMe}>
@@ -13,7 +36,7 @@ import IconPrimary from "@/components/icons/IconPrimary.astro";
         <a href="/about-me" class="headingLink">
             <h2 class="heading">
                 About Me
-                <IconPrimary icon={linkIcon} alt="Link" size="small" />
+                <ThemedIcon icon={linkIcon} alt="Link" size="small" />
             </h2>
         </a>
         <div class={styles.content}>
@@ -38,38 +61,26 @@ import IconPrimary from "@/components/icons/IconPrimary.astro";
                     thinking to every project.
                 </p>
 
+                <p>
+                    Inspired by <a href="https://nomoredesign.co.uk">nomoredesign</a>
+                </p>
+
                 <div class={styles.socials}>
-                    <a
-                        href="https://github.com/victor-adebowale-momodu"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconPrimary icon={githubIcon} alt="GitHub" />
-                    </a>
-
-                    <a
-                        href="https://linkedin.com/in/victor-adebowale-momodu"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconPrimary icon={linkedinIcon} alt="LinkedIn" />
-                    </a>
-
-                    <a
-                        href="https://twitter.com/victoramomodu"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconPrimary icon={twitterIcon} alt="Twitter" />
-                    </a>
-
-                    <a
-                        href="mailto:victoramomodu@gmail.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IconPrimary icon={emailIcon} alt="Email" />
-                    </a>
+                    {
+                        socialLinks.map((link) => (
+                            <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <ThemedIcon
+                                    icon={link.icon}
+                                    alt={link.alt}
+                                    color="primary"
+                                />
+                            </a>
+                        ))
+                    }
                 </div>
             </div>
         </div>

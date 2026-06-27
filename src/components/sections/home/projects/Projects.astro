@@ -1,7 +1,7 @@
 ---
 import styles from "./Projects.module.css";
 import linkIcon from "@/assets/link.svg?raw";
-import IconSecondary from "@/components/icons/IconSecondary.astro";
+import ThemedIcon from "@/components/icons/ThemedIcon.astro";
 ---
 
 <section class={styles.projects}>
@@ -9,7 +9,12 @@ import IconSecondary from "@/components/icons/IconSecondary.astro";
         <a href="/projects" class="headingLink">
             <h2 class="heading">
                 Projects
-                <IconSecondary icon={linkIcon} alt="Link" size="small" />
+                <ThemedIcon
+                    icon={linkIcon}
+                    alt="Link"
+                    size="small"
+                    color="secondary"
+                />
             </h2>
         </a>
     </div>

@@ -1,14 +1,31 @@
 ---
 import styles from "./Footer.module.css";
 import logoImage from "@/assets/logo.svg?raw";
-import logoImage_ from "@/assets/logo.svg";
-import menuImage from "@/assets/menu.svg?raw";
-import IconPrimary from "@/components/icons/IconPrimary.astro";
+import ThemedIcon from "@/components/icons/ThemedIcon.astro";
+
+const currentYear = new Date().getFullYear();
 ---
 
 <section class={styles.footer}>
     <div class="container">
-        <IconPrimary icon={menuImage} alt="Logo" size="large" />
-        <img src={logoImage_.src} alt="Logo" class={styles.logo} />
+        <div class={styles.content}>
+            <ThemedIcon
+                icon={logoImage}
+                alt="Logo"
+                width="24rem"
+                height="16rem"
+            />
+            <div class={styles.links}>
+                <a href="/projects">Projects</a>
+                <a href="/blog">Blog</a>
+                <a href="/about">About Me</a>
+            </div>
+        </div>
+        <hr />
+        <div class={styles.subFooter}>
+            <p>
+                &copy; {currentYear} Victor Adebowale Momodu. All Rights Reserved.
+            </p>
+        </div>
     </div>
 </section>

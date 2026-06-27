@@ -3,3 +3,37 @@
     color: var(--color-primary);
     padding: clamp(4rem, 8vw, 8rem);
 }
+
+hr {
+    border: none;
+    border-top: 1px solid;
+    margin: 4rem 0;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subFooter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.subFooter p {
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
