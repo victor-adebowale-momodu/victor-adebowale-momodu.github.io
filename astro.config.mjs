@@ -7,6 +7,7 @@ import keystatic from "@keystatic/astro";
 
 // https://astro.build/config
 export default defineConfig({
+    output: "static",
     site: "https://victor-adebowale-momodu.github.io/",
     integrations: [
         react(),
