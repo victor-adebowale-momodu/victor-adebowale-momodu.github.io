@@ -2,8 +2,7 @@ import { config, collection, fields } from "@keystatic/core";
 
 export default config({
     storage: {
-        kind: "github",
-        repo: "victor-adebowale-momodu/victor-adebowale-momodu.github.io",
+        kind: "local",
     },
 
     collections: {
