@@ -20,9 +20,19 @@ export default config({
             },
         }),
 
-        blogs: collection({
-            label: "Blogs",
-            path: "src/content/blogs/*",
+        projects: collection({
+            label: "Projects",
+            path: "src/content/projects/*",
+            slugField: "title",
+            format: { contentField: "content" },
+            schema: {
+                title: fields.slug({ name: { label: "Title" } }),
+            },
+        }),
+
+        blog: collection({
+            label: "Blog",
+            path: "src/content/blog/*",
             slugField: "title",
             format: { contentField: "content" },
             schema: {

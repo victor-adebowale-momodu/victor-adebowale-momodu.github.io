@@ -1,10 +1,11 @@
 ---
-import styles from "./Projects.module.css";
+import "./styles.css";
 import linkIcon from "@/assets/link.svg?raw";
 import ThemedIcon from "@/components/icons/ThemedIcon.astro";
+import ProjectCarousel from "./ProjectCarousel.astro";
 ---
 
-<section class={styles.projects}>
+<section class="projects">
     <div class="container">
         <a href="/projects" class="headingLink">
             <h2 class="heading">
@@ -17,5 +18,6 @@ import ThemedIcon from "@/components/icons/ThemedIcon.astro";
                 />
             </h2>
         </a>
+        <ProjectCarousel />
     </div>
 </section>

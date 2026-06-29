@@ -1,14 +1,14 @@
 ---
-import styles from "./Hero.module.css";
+import "./styles.css";
 import { getCollection } from "astro:content";
 
 const quotesCollection = await getCollection("quotes");
 const quotes = quotesCollection.map((quote) => quote.data);
 ---
 
-<section class={styles.hero}>
+<section class="hero">
     <div class="container">
-        <blockquote class={styles.quoteBlock}>
+        <blockquote class="quote">
             <p id="quote-text">
                 {quotes.length === 0 ? "No quotes yet." : "Loading..."}
             </p>

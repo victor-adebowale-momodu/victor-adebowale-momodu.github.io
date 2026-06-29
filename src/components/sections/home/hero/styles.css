@@ -9,17 +9,17 @@
     font-size: clamp(2.5rem, 3vw + 1rem, 6rem);
 }
 
-.quoteBlock {
+.quote {
     max-width: 800px;
     text-align: center;
 }
 
-.quoteBlock p {
+.quote p {
     font-size: clamp(1.25rem, 4vw, 2.5rem);
     font-style: italic;
 }
 
-.quoteBlock cite {
+.quote cite {
     display: block;
     margin-top: 1rem;
     font-style: normal;

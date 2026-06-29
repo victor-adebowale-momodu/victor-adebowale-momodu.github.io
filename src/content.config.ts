@@ -10,4 +10,20 @@ const quotes = defineCollection({
     }),
 });
 
-export const collections = { quotes };
+const projects = defineCollection({
+    loader: glob({ base: "./src/content/projects", pattern: "**/*.md" }),
+    schema: z.object({
+        title: z.string(),
+    }),
+});
+
+const blog = defineCollection({
+    loader: glob({ base: "./src/content/blog", pattern: "**/*.md" }),
+    schema: z.object({
+        title: z.string(),
+        author: z.string(),
+        date: z.date(),
+    }),
+});
+
+export const collections = { quotes, projects, blog };

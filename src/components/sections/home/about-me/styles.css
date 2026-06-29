@@ -1,4 +1,4 @@
-.aboutMe {
+.about-me {
     background-color: var(--color-secondary);
     color: var(--color-primary);
     padding: clamp(4rem, 8vw, 8rem);
