@@ -1,0 +1,20 @@
+---
+export const prerender = false;
+
+import Article from "@/components/sections/devlog/Article.astro";
+import { getEntry } from "astro:content";
+
+const { slug } = Astro.params;
+if (slug === undefined) {
+    return Astro.redirect("/404");
+}
+
+const article = await getEntry("devlog", slug);
+if (article === undefined) {
+    return Astro.redirect("/404");
+}
+
+const { title, description } = article.data;
+---
+
+<Article title={title} description={description} />

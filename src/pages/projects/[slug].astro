@@ -1,0 +1,20 @@
+---
+export const prerender = false;
+
+import ProjectDetails from "@/components/sections/projects/ProjectDetails.astro";
+import { getEntry, render } from "astro:content";
+
+const { slug } = Astro.params;
+if (slug === undefined) {
+    return Astro.redirect("/404");
+}
+
+const project = await getEntry("projects", slug);
+if (project === undefined) {
+    return Astro.redirect("/404");
+}
+
+const { title, description } = project.data;
+---
+
+<ProjectDetails title={title} description={description} />

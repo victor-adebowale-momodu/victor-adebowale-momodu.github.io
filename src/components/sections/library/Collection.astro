@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import Item from "./Item.astro";
+
+interface Props {
+    heading: string;
+    subtitle: string;
+    collection: "devlog" | "projects";
+}
+
+const { heading, subtitle, collection } = Astro.props;
+const collectionData = await getCollection(collection);
+---
+
+<div class="container">
+    <h1>{heading}</h1>
+    <p>{subtitle}</p>
+    {collectionData.length === 0 && <p>No items found.</p>}
+    {collectionData.map((item) => <p>{item.id}</p>)}
+</div>

@@ -24,21 +24,68 @@ export default config({
             label: "Projects",
             path: "src/content/projects/*",
             slugField: "title",
-            format: { contentField: "content" },
+            format: { data: "json" },
             schema: {
                 title: fields.slug({ name: { label: "Title" } }),
+                description: fields.text({
+                    label: "Description",
+                    multiline: true,
+                }),
+                status: fields.select({
+                    label: "Status",
+                    options: [
+                        { label: "Completed", value: "completed" },
+                        { label: "In Progress", value: "in-progress" },
+                        { label: "Archived", value: "archived" },
+                    ],
+                    defaultValue: "completed",
+                }),
+                media: fields.array(fields.text({ label: "Media item" }), {
+                    label: "Media",
+                    itemLabel: (props) => props.value,
+                }),
+                tags: fields.array(fields.text({ label: "Tag" }), {
+                    label: "Tags",
+                    itemLabel: (props) => props.value,
+                }),
+                links: fields.object(
+                    {
+                        live: fields.url({ label: "Live URL" }),
+                        github: fields.url({ label: "GitHub URL" }),
+                        devlog: fields.url({ label: "Devlog URL" }),
+                        demo: fields.url({ label: "Demo URL" }),
+                    },
+                    { label: "Links" },
+                ),
             },
         }),
 
-        blog: collection({
-            label: "Blog",
-            path: "src/content/blog/*",
+        devlog: collection({
+            label: "Devlog",
+            path: "src/content/devlog/*",
             slugField: "title",
+            entryLayout: "content",
             format: { contentField: "content" },
             schema: {
                 title: fields.slug({ name: { label: "Title" } }),
                 date: fields.date({ label: "Published Date" }),
-                summary: fields.text({ label: "Summary", multiline: true }),
+                updated: fields.date({ label: "Updated Date" }),
+                description: fields.text({
+                    label: "Description",
+                    multiline: true,
+                }),
+                type: fields.select({
+                    label: "Type",
+                    options: [
+                        { label: "Devlog", value: "devlog" },
+                        { label: "Article", value: "article" },
+                        { label: "Tutorial", value: "tutorial" },
+                        { label: "Thought", value: "thought" },
+                    ],
+                    defaultValue: "article",
+                }),
+                draft: fields.checkbox({ label: "Draft", defaultValue: false }),
+                canonicalUrl: fields.url({ label: "Canonical URL" }),
                 content: fields.markdoc({ label: "Content" }),
             },
         }),
