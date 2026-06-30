@@ -1,19 +1,16 @@
 ---
-export const prerender = false;
-
 import ProjectDetails from "@/components/sections/projects/ProjectDetails.astro";
-import { getEntry, render } from "astro:content";
+import { getCollection } from "astro:content";
 
-const { slug } = Astro.params;
-if (slug === undefined) {
-    return Astro.redirect("/404");
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    return projects.map((project) => ({
+        params: { slug: project.id },
+        props: { project },
+    }));
 }
 
-const project = await getEntry("projects", slug);
-if (project === undefined) {
-    return Astro.redirect("/404");
-}
-
+const { project } = Astro.props;
 const { title, description } = project.data;
 ---
 
