@@ -1,0 +1,75 @@
+---
+import logoImage from "@/assets/logo.svg";
+import menuImage from "@/assets/menu.svg";
+---
+
+<header>
+    <div class="container header-content">
+        <div class="logo-wrapper">
+            <img src={logoImage.src} alt="logo" class="logo" />
+        </div>
+
+        <button class="menu-btn" aria-label="Open navigation menu">
+            <img
+                src={menuImage.src}
+                alt="menu"
+                aria-hidden="true"
+                class="menu"
+            />
+        </button>
+    </div>
+</header>
+
+<style>
+    header {
+        position: sticky;
+        top: 0;
+        height: clamp(64px, 8vh, 96px);
+        width: 100%;
+        background: transparent;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+    }
+
+    .logo-wrapper {
+        height: 45%;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        height: 100%;
+        width: auto;
+        display: block;
+    }
+
+    .menu-btn {
+        background: none;
+        border: none;
+        padding: 0.5rem;
+        cursor: pointer;
+        height: 45%;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s ease;
+    }
+
+    .menu-btn:hover {
+        opacity: 0.7;
+    }
+
+    .menu {
+        height: 80%;
+        width: 80%;
+        object-fit: contain;
+    }
+</style>

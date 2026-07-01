@@ -1,0 +1,89 @@
+---
+import logoImage from "@/assets/logo.svg?raw";
+import ThemedIcon from "@/components/common/ThemedIcon.astro";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+    <div class="container">
+        <div class="content">
+            <ThemedIcon
+                icon={logoImage}
+                alt="Logo"
+                width="24rem"
+                height="16rem"
+            />
+            <div class="links">
+                <a href="/projects">Projects</a>
+                <a href="/devlog">Devlog</a>
+                <a href="/about-me">About Me</a>
+            </div>
+        </div>
+        <hr />
+        <div class="sub-footer">
+            <p>
+                &copy; {currentYear} Victor Adebowale Momodu. All Rights Reserved.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        padding: clamp(4rem, 8vw, 8rem);
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid;
+        margin-top: 4rem;
+        opacity: 0.5;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sub-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sub-footer p {
+        font-size: 1rem;
+        letter-spacing: 0.05rem;
+        opacity: 0.5;
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .links a {
+        color: var(--color-primary);
+        text-decoration: underline dotted;
+        text-underline-offset: 0.5rem;
+        transition: color 0.3s ease, opacity 0.3s ease;
+        font-size: 1.25rem;
+    }
+
+    .links a:hover {
+        color: var(--color-primary);
+        text-decoration: underline solid;
+        text-underline-offset: 0.25rem;
+        opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            flex-direction: column;
+            gap: 4rem;
+        }
+    }
+</style>

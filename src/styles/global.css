@@ -1,9 +1,12 @@
-@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/space-grotesk";
+@import "@fontsource-variable/inter";
 
 :root {
     --color-primary: #f8f8f6;
     --color-secondary: #171614;
     --max-width: 1440px;
+    --font-space-grotesk: "Space Grotesk Variable", sans-serif;
+    --font-inter: "Inter Variable", sans-serif;
     --gutter: clamp(1rem, 5vw, 3rem);
 }
 
@@ -15,7 +18,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-family: "JetBrains Mono Variable", monospace;
+    font-family: var(--font-space-grotesk);
     line-height: 1.5;
     background-color: var(--color-primary);
     color: var(--color-secondary);
@@ -31,12 +34,6 @@ body {
     margin-inline: auto;
 }
 
-.headingLink {
-    text-decoration: none;
-    color: inherit;
-    display: inline-block;
-}
-
 .heading {
     font-size: clamp(2rem, 4vw, 3rem);
     margin-bottom: 1rem;
@@ -45,7 +42,17 @@ body {
     gap: 0.5rem;
 }
 
-.headingLink:hover {
-    transform: translateY(-2px);
-    text-decoration: underline;
+.heading-link {
+    text-decoration: underline dotted;
+    text-underline-offset: 0.5rem;
+    color: inherit;
+    display: inline-block;
+    transition:
+        transform 0.2s ease,
+        text-decoration-color 0.2s ease;
+}
+
+.heading-link:hover {
+    text-underline-offset: 0.25rem;
+    text-decoration: underline solid;
 }

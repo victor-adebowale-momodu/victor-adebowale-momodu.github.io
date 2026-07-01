@@ -1,0 +1,183 @@
+---
+import linkIcon from "@/assets/link.svg?raw";
+import arrowCircleLeft from "@/assets/arrow-circle-left.svg?raw";
+import arrowCircleRight from "@/assets/arrow-circle-right.svg?raw";
+import ThemedIcon from "@/components/common/ThemedIcon.astro";
+import { getCollection } from "astro:content";
+
+const projectCollection = await getCollection("projects");
+const projects = projectCollection.map((project) => project.data);
+---
+
+<section class="projects">
+    <div class="container">
+        <a href="/projects" class="heading-link">
+            <h2 class="heading">
+                Projects
+                <ThemedIcon
+                    icon={linkIcon}
+                    alt="link"
+                    size="small"
+                    color="secondary"
+                />
+            </h2>
+        </a>
+
+        <div class="project-brief">
+            <h3 class="project-title" id="active-title">{projects[0].title}</h3>
+            <p class="project-description" id="active-description">
+                {projects[0].description}
+            </p>
+        </div>
+
+        <div class="carousel">
+            <div class="carousel-indicators">
+                {
+                    projects.map((_, index) => (
+                        <button
+                            class={`indicator ${index === 0 ? "active" : ""}`}
+                            data-index={index}
+                        />
+                    ))
+                }
+            </div>
+            <div>
+                <button class="arrow-btn prev-btn">
+                    <ThemedIcon
+                        icon={arrowCircleLeft}
+                        alt="arrow circle left"
+                        size="medium"
+                        color="secondary"
+                    />
+                </button>
+                <button class="arrow-btn next-btn">
+                    <ThemedIcon
+                        icon={arrowCircleRight}
+                        alt="arrow circle right"
+                        size="medium"
+                        color="secondary"
+                    />
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .projects {
+        padding: clamp(4rem, 8vw, 8rem);
+    }
+
+    .project-brief {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+
+    .project-title {
+        flex: 0 0 35%;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .project-description {
+        flex: 1 1 60%;
+        font-size: 1.5rem;
+        font-weight: 400;
+        max-width: 80ch;
+    }
+
+    .carousel {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block: 4rem;
+    }
+
+    .carousel-indicators {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        border: 2px solid var(--color-secondary);
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .indicator.active {
+        background: var(--color-secondary);
+    }
+
+    .indicator:hover {
+        transform: scale(1.15);
+    }
+
+    .arrow-btn {
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .arrow-btn:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .project-brief {
+            flex-direction: column;
+        }
+        .project-title,
+        .project-description {
+            flex-basis: auto;
+        }
+    }
+</style>
+
+<script is:inline define:vars={{ projects }}>
+    let currentIndex = 0;
+    const totalProjects = projects.length;
+
+    const titleEl = document.getElementById("active-title");
+    const descriptionEl = document.getElementById("active-description");
+    const indicators = document.querySelectorAll(".indicator");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+
+    function updateCarousel(targetIndex) {
+        currentIndex = targetIndex;
+
+        if (titleEl && descriptionEl) {
+            titleEl.textContent = projects[currentIndex].title;
+            descriptionEl.textContent = projects[currentIndex].description;
+        }
+
+        indicators.forEach((indicator, i) => {
+            if (i === currentIndex) {
+                indicator.classList.add("active");
+            } else {
+                indicator.classList.remove("active");
+            }
+        });
+    }
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener("click", () => {
+            const prevIndex =
+                (currentIndex - 1 + totalProjects) % totalProjects;
+            updateCarousel(prevIndex);
+        });
+
+        nextBtn.addEventListener("click", () => {
+            const nextIndex = (currentIndex + 1) % totalProjects;
+            updateCarousel(nextIndex);
+        });
+    }
+</script>

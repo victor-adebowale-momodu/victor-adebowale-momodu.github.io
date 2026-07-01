@@ -1,12 +1,14 @@
 ---
-import AboutMe from "@/components/sections/home/about-me/AboutMe.astro";
-import Hero from "@/components/sections/home/hero/Hero.astro";
-import Projects from "@/components/sections/home/projects/Projects.astro";
+import Hero from "@/components/sections/home/Hero.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import AboutMe from "@/components/sections/home/AboutMe.astro";
+import Marquee from "@/components/sections/home/Marquee.astro";
+import Projects from "@/components/sections/home/Projects.astro";
 ---
 
 <BaseLayout>
     <Hero />
     <AboutMe />
+    <Marquee />
     <Projects />
 </BaseLayout>

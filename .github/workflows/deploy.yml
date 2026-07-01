@@ -10,6 +10,7 @@ on:
 
 env:
     SKIP_KEYSTATIC: true
+    NODE_ENV: production
 
 # Allow this job to clone the repo and create a page deployment
 permissions:

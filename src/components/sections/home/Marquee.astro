@@ -1,0 +1,103 @@
+---
+const repititions = Array(2).fill(null);
+---
+
+<section class="marquee-container">
+    <a
+        href="https://nomoredesign.co.uk"
+        class="marquee"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <div class="marquee-track">
+            {
+                repititions.map((_, index) => (
+                    <div class="inspired-by">
+                        <span class="inspired-by-text">inspired</span>
+                        <span class="inspired-by-text">by</span>
+                        <span class="inspired-by-text">nomoredesign.co.uk</span>
+                    </div>
+                ))
+            }
+        </div>
+        <div class="marquee-track" aria-hidden="true">
+            {
+                repititions.map((_, index) => (
+                    <div class="inspired-by">
+                        <span class="inspired-by-text">inspired</span>
+                        <span class="inspired-by-text">by</span>
+                        <span class="inspired-by-text">nomoredesign.co.uk</span>
+                    </div>
+                ))
+            }
+        </div>
+    </a>
+</section>
+
+<style>
+    :root {
+        --marquee-gap: 4rem;
+        --marquee-speed: 15s;
+    }
+
+    .marquee-container {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 4rem;
+    }
+
+    .marquee {
+        display: flex;
+        user-select: none;
+        overflow: hidden;
+        gap: var(--marquee-gap);
+        width: 100%;
+        color: var(--color-primary);
+        text-decoration: none;
+        cursor: pointer;
+        mask-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0) 0%,
+            rgba(0, 0, 0, 1) 15%,
+            rgba(0, 0, 0, 1) 85%,
+            rgba(0, 0, 0, 0) 100%
+        );
+    }
+
+    .marquee-track {
+        flex-shrink: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: var(--marquee-gap);
+        min-width: 100%;
+        animation: scroll-left var(--marquee-speed) linear infinite;
+    }
+
+    .marquee:hover .marquee-track {
+        animation-play-state: paused;
+    }
+
+    .inspired-by {
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-inter);
+        font-weight: 900;
+    }
+
+    .inspired-by-text {
+        font-size: clamp(0.75rem, 2vw, 1.5rem);
+    }
+
+    @keyframes scroll-left {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(calc(-100% - var(--marquee-gap)));
+        }
+    }
+</style>

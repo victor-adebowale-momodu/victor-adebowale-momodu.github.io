@@ -1,11 +1,10 @@
 ---
-import "./styles.css";
 import githubIcon from "@/assets/github.svg?raw";
 import linkedinIcon from "@/assets/linkedin.svg?raw";
 import twitterIcon from "@/assets/twitter.svg?raw";
 import emailIcon from "@/assets/email.svg?raw";
 import linkIcon from "@/assets/link.svg?raw";
-import ThemedIcon from "@/components/icons/ThemedIcon.astro";
+import ThemedIcon from "@/components/common/ThemedIcon.astro";
 
 const socialLinks = [
     {
@@ -33,10 +32,10 @@ const socialLinks = [
 
 <section class="about-me">
     <div class="container">
-        <a href="/about-me" class="headingLink">
+        <a href="/about-me" class="heading-link">
             <h2 class="heading">
                 About Me
-                <ThemedIcon icon={linkIcon} alt="Link" size="small" />
+                <ThemedIcon icon={linkIcon} alt="link" size="small" />
             </h2>
         </a>
         <div class="content">
@@ -61,12 +60,6 @@ const socialLinks = [
                     thinking to every project.
                 </p>
 
-                <p>
-                    Inspired by <a href="https://nomoredesign.co.uk"
-                        >nomoredesign</a
-                    >
-                </p>
-
                 <div class="socials">
                     {
                         socialLinks.map((link) => (
@@ -88,3 +81,57 @@ const socialLinks = [
         </div>
     </div>
 </section>
+
+<style>
+    .about-me {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        padding: clamp(4rem, 8vw, 8rem);
+    }
+
+    .content {
+        display: flex;
+        gap: 1.5rem;
+    }
+
+    .column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    p {
+        margin: 0;
+        font-size: clamp(1rem, 1.4vw, 1.25rem);
+        line-height: 1.7;
+        max-width: 60ch;
+    }
+
+    .socials {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    .socials a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .socials a:hover {
+        opacity: 0.7;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            flex-direction: column;
+        }
+    }
+</style>
