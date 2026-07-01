@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Item from "./Item.astro";
+import PageHeader from "@/components/common/PageHeader.astro";
 
 interface Props {
     heading: string;
@@ -9,12 +10,17 @@ interface Props {
 }
 
 const { heading, subtitle, collection } = Astro.props;
-const collectionData = await getCollection(collection);
+const collectn = await getCollection(collection);
 ---
 
-<div class="container">
-    <h1>{heading}</h1>
-    <p>{subtitle}</p>
-    {collectionData.length === 0 && <p>No items found.</p>}
-    {collectionData.map((item) => <p>{item.id}</p>)}
+<PageHeader heading={heading} subtitle={subtitle} />
+
+<div class="container collection">
+    {collectn.map((item) => <Item {...item.data} />)}
 </div>
+
+<style>
+    .collection {
+        margin-block: 1.5rem;
+    }
+</style>

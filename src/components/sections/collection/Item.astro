@@ -6,9 +6,57 @@ interface Props {
 }
 
 const { title, description, url } = Astro.props;
+console.log(title, description, url);
 ---
 
 <a href={url}>
     <span>{title}</span>
     <p>{description}</p>
 </a>
+
+<style>
+    a {
+        display: flex;
+        gap: 1.5rem;
+        padding: 2rem;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid transparent;
+        background:
+            linear-gradient(to right, #000 20px, transparent 20px) 0 0/20px 4px
+                no-repeat,
+            linear-gradient(to bottom, #000 20px, transparent 20px) 0 0/4px 20px
+                no-repeat,
+            linear-gradient(to left, #000 20px, transparent 20px) 100% 0/20px
+                4px no-repeat,
+            linear-gradient(to bottom, #000 20px, transparent 20px) 100% 0/4px
+                20px no-repeat,
+            linear-gradient(to right, #000 20px, transparent 20px) 0 100%/20px
+                4px no-repeat,
+            linear-gradient(to top, #000 20px, transparent 20px) 0 100%/4px 20px
+                no-repeat,
+            linear-gradient(to left, #000 20px, transparent 20px) 100% 100%/20px
+                4px no-repeat,
+            linear-gradient(to top, #000 20px, transparent 20px) 100% 100%/4px
+                20px no-repeat;
+    }
+
+    span {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        font-weight: 700;
+    }
+
+    p {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        max-width: 80ch;
+    }
+
+    a:hover {
+        background-color: var(--color-secondary);
+        color: var(--color-primary);
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+    }
+</style>
