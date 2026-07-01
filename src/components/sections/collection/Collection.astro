@@ -11,12 +11,21 @@ interface Props {
 
 const { heading, subtitle, collection } = Astro.props;
 const collectn = await getCollection(collection);
+console.log(collectn)
 ---
 
 <PageHeader heading={heading} subtitle={subtitle} />
 
 <div class="container collection">
-    {collectn.map((item) => <Item {...item.data} />)}
+    {
+        collectn.map((item) => (
+            <Item
+                title={item.data.title}
+                description={item.data.description}
+                url={collection + "/" + item.id}
+            />
+        ))
+    }
 </div>
 
 <style>

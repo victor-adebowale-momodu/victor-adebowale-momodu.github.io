@@ -6,7 +6,6 @@ interface Props {
 }
 
 const { title, description, url } = Astro.props;
-console.log(title, description, url);
 ---
 
 <a href={url}>
@@ -22,6 +21,8 @@ console.log(title, description, url);
         align-items: center;
         justify-content: space-between;
         border: 1px solid transparent;
+        color: var(--color-secondary);
+        text-decoration: none;
         background:
             linear-gradient(to right, #000 20px, transparent 20px) 0 0/20px 4px
                 no-repeat,
@@ -56,7 +57,7 @@ console.log(title, description, url);
     a:hover {
         background-color: var(--color-secondary);
         color: var(--color-primary);
-        transform: scale(1.05);
+        transform: scale(1.01);
         transition: transform 0.2s ease-in-out;
     }
 </style>
