@@ -1,6 +1,7 @@
 ---
-import Article from "@/components/sections/devlog/Article.astro";
-import { getCollection } from "astro:content";
+import CollectionHeader from "@/components/common/CollectionHeader.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getCollection, getEntry, render } from "astro:content";
 
 export async function getStaticPaths() {
     const articles = await getCollection("devlog");
@@ -11,7 +12,19 @@ export async function getStaticPaths() {
 }
 
 const { article } = Astro.props;
-const { title, description } = article.data;
+
+const entry = await getEntry("devlog", article.id);
+if (!entry) {
+    return Astro.redirect("/404");
+}
+
+const { Content } = await render(entry);
+const { title, description, tags } = entry.data;
 ---
 
-<Article heading={title} tags={[]} />
+<BaseLayout>
+    <CollectionHeader heading={title} tags={tags} />
+    <div class="container">
+        <Content />
+    </div>
+</BaseLayout>

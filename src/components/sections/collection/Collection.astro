@@ -11,7 +11,6 @@ interface Props {
 
 const { heading, subtitle, collection } = Astro.props;
 const collectn = await getCollection(collection);
-console.log(collectn)
 ---
 
 <PageHeader heading={heading} subtitle={subtitle} />

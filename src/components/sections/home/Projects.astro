@@ -9,7 +9,7 @@ const projectCollection = await getCollection("projects");
 const projects = projectCollection.map((project) => project.data);
 ---
 
-<section class="projects">
+<section>
     <div class="container">
         <a href="/projects" class="heading-link">
             <h2 class="heading">
@@ -64,7 +64,7 @@ const projects = projectCollection.map((project) => project.data);
 </section>
 
 <style>
-    .projects {
+    section {
         padding: clamp(4rem, 8vw, 8rem);
     }
 

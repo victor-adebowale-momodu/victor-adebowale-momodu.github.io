@@ -85,7 +85,10 @@ export default config({
                     defaultValue: "article",
                 }),
                 draft: fields.checkbox({ label: "Draft", defaultValue: false }),
-                canonicalUrl: fields.url({ label: "Canonical URL" }),
+                tags: fields.array(fields.text({ label: "Tag" }), {
+                    label: "Tags",
+                    itemLabel: (props) => props.value,
+                }),
                 content: fields.markdoc({ label: "Content" }),
             },
         }),

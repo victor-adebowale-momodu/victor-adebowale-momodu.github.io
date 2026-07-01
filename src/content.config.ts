@@ -36,11 +36,11 @@ const devlog = defineCollection({
         description: z.string(),
         date: z.coerce.date(),
         updated: z.coerce.date().optional(),
+        tags: z.array(z.string()).default([]),
         type: z
             .enum(["devlog", "article", "tutorial", "thought"])
             .default("article"),
         draft: z.boolean().default(false),
-        canonicalUrl: z.url().optional(),
     }),
 });
 

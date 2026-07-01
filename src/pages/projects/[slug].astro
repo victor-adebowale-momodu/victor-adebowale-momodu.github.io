@@ -1,5 +1,6 @@
 ---
-import Project from "@/components/sections/projects/Project.astro";
+import CollectionHeader from "@/components/common/CollectionHeader.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -14,4 +15,6 @@ const { project } = Astro.props;
 const { title, description, tags } = project.data;
 ---
 
-<Project heading={title} tags={["astro", "javascript"]} />
+<BaseLayout>
+    <CollectionHeader heading={title} tags={tags} />
+</BaseLayout>
