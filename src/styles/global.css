@@ -22,12 +22,15 @@ html {
     line-height: 1.5;
     background-color: var(--color-primary);
     color: var(--color-secondary);
-    max-width: 100%;
 }
 
 body {
     margin: 0;
-    max-width: 100%;
+}
+
+html,
+body {
+    overflow-x: hidden;
 }
 
 .container {
