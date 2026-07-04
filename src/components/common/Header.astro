@@ -1,34 +1,58 @@
 ---
 import logoImage from "@/assets/logo.svg";
-import menuImage from "@/assets/menu.svg";
+import menuImage from "@/assets/menu.svg?raw";
+import closeImage from "@/assets/close.svg?raw";
+import ThemedIcon from "./ThemedIcon.astro";
 ---
 
-<header>
+<header class="header">
     <div class="container header-content">
         <div class="logo-wrapper">
             <img src={logoImage.src} alt="logo" class="logo" />
         </div>
+        <div class="menu-wrapper">
+            <button
+                class="menu-btn"
+                data-menu-toggle
+                aria-label="Toggle navigation menu"
+            >
+                <span class="icon menu-icon" data-menu-icon>
+                    <ThemedIcon
+                        icon={menuImage}
+                        alt="menu"
+                        color="secondary"
+                        size="small"
+                    />
+                </span>
 
-        <button class="menu-btn" aria-label="Open navigation menu">
-            <img
-                src={menuImage.src}
-                alt="menu"
-                aria-hidden="true"
-                class="menu"
-            />
-        </button>
+                <span class="icon close-icon" data-close-icon>
+                    <ThemedIcon
+                        icon={closeImage}
+                        alt="close"
+                        color="secondary"
+                        size="small"
+                    />
+                </span>
+            </button>
+
+            <nav class="menu" data-menu>
+                <a href="/" class="menu-link">Home</a>
+                <a href="/about-me" class="menu-link">About Me</a>
+                <a href="/projects" class="menu-link">Projects</a>
+                <a href="/devlog" class="menu-link">Devlog</a>
+            </nav>
+        </div>
     </div>
 </header>
 
 <style>
-    header {
+    .header {
         position: sticky;
         top: 0;
         height: clamp(64px, 8vh, 96px);
         width: 100%;
-        background: transparent;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
+        background: var(--color-primary);
+        border-bottom: 1px solid var(--color-secondary);
     }
 
     .header-content {
@@ -50,6 +74,10 @@ import menuImage from "@/assets/menu.svg";
         display: block;
     }
 
+    .menu-wrapper {
+        position: relative;
+    }
+
     .menu-btn {
         background: none;
         border: none;
@@ -68,8 +96,84 @@ import menuImage from "@/assets/menu.svg";
     }
 
     .menu {
-        height: 80%;
-        width: 80%;
-        object-fit: contain;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+
+        min-width: 200px;
+        width: max-content;
+
+        background: var(--color-primary);
+        border: 1px solid var(--color-secondary);
+        padding: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+
+        transform: translateY(-10px);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.25s ease;
+    }
+
+    .menu-link {
+        color: var(--color-secondary);
+        text-decoration: underline dotted;
+        text-underline-offset: 0.5rem;
+        transition:
+            color 0.3s ease,
+            opacity 0.3s ease;
+        font-size: 1.5rem;
+    }
+
+    .menu-link:hover{
+        text-decoration: underline solid;
+        text-underline-offset: 0.25rem;
+        opacity: 0.7;
+    }
+
+    .menu-link:hover {
+        opacity: 1;
+    }
+
+    .header.is-open .menu {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .close-icon {
+        display: none;
+    }
+
+    .header.is-open .menu-icon {
+        display: none;
+    }
+
+    .header.is-open .close-icon {
+        display: block;
     }
 </style>
+
+<script is:inline>
+    const menuToggle = document.querySelector("[data-menu-toggle]");
+    const header = document.querySelector(".header");
+    const menuWrapper = document.querySelector(".menu-wrapper");
+
+    menuToggle.addEventListener("click", (event) => {
+        event.stopPropagation();
+        header.classList.toggle("is-open");
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!menuWrapper.contains(event.target)) {
+            header.classList.remove("is-open");
+        }
+    });
+</script>
