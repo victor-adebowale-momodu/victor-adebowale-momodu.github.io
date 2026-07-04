@@ -7,9 +7,9 @@ import ThemedIcon from "./ThemedIcon.astro";
 
 <header class="header">
     <div class="container header-content">
-        <div class="logo-wrapper">
+        <a href="/" class="logo-wrapper" aria-label="Go to homepage">
             <img src={logoImage.src} alt="logo" class="logo" />
-        </div>
+        </a>
         <div class="menu-wrapper">
             <button
                 class="menu-btn"
@@ -66,6 +66,7 @@ import ThemedIcon from "./ThemedIcon.astro";
         height: 45%;
         display: flex;
         align-items: center;
+        text-decoration: none;
     }
 
     .logo {
