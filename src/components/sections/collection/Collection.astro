@@ -21,7 +21,7 @@ const collectn = await getCollection(collection);
             <Item
                 title={item.data.title}
                 description={item.data.description}
-                url={collection + "/" + item.id}
+                url={`${import.meta.env.BASE_URL}${collection}/${item.id}`}
             />
         ))
     }

@@ -7,14 +7,14 @@ interface Props {
 const { heading, subtitle } = Astro.props;
 ---
 
-<header>
-    <div class="container">
+<div class="container">
+    <header>
         <hgroup class="header-group">
             <h1>{heading}</h1>
             {subtitle && <h2>{subtitle}</h2>}
         </hgroup>
-    </div>
-</header>
+    </header>
+</div>
 
 <style>
     header {

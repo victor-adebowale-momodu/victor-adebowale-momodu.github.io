@@ -7,21 +7,21 @@ interface Props {
 const { heading, tags } = Astro.props;
 ---
 
-<header>
-    <div class="container">
+<div class="container">
+    <header>
         <hgroup class="header-group">
             <h1>{heading}</h1>
             <div class="tags">
                 {tags.map((tag) => <span>{tag}</span>)}
             </div>
         </hgroup>
-    </div>
-</header>
+    </header>
+</div>
 
 <style>
     header {
         padding-block: clamp(2rem, 5vw, 4rem);
-        border-bottom: 4px dotted;
+        border-bottom: 1px solid;
     }
 
     .header-group {
