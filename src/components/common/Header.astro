@@ -49,6 +49,7 @@ import ThemedIcon from "./ThemedIcon.astro";
     .header {
         position: sticky;
         top: 0;
+        z-index: 100;
         height: clamp(64px, 8vh, 96px);
         width: 100%;
         background: var(--color-primary);
@@ -129,7 +130,7 @@ import ThemedIcon from "./ThemedIcon.astro";
         font-size: 1.5rem;
     }
 
-    .menu-link:hover{
+    .menu-link:hover {
         text-decoration: underline solid;
         text-underline-offset: 0.25rem;
         opacity: 0.7;
