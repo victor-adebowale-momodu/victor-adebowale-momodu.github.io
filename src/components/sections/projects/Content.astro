@@ -1,0 +1,160 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+type Props = CollectionEntry<"projects">["data"];
+const projectData = Astro.props;
+
+function formatUrl(url: string) {
+    try {
+        const parsed = new URL(url);
+        return (
+            parsed.hostname.replace(/^www\./, "") +
+            parsed.pathname.replace(/\/$/, "")
+        );
+    } catch {
+        return url;
+    }
+}
+
+const linkTypes = [
+    { key: "live", label: "live" },
+    { key: "github", label: "source" },
+    { key: "devlog", label: "devlog" },
+    { key: "demo", label: "demo" },
+] as const;
+
+const links = linkTypes
+    .filter(({ key }) => projectData.links[key])
+    .map(({ key, label }) => ({
+        label,
+        url: projectData.links[key] as string,
+    }));
+---
+
+<section>
+    <div class="container">
+        <div class="frontmatter">
+            <p class="description">{projectData.description}</p>
+            {
+                links.length > 0 && (
+                    <ul class="links">
+                        {links.map(({ label, url }) => (
+                            <li>
+                                <a href={url}>
+                                    <span class="label">{label}</span>
+                                    <span class="url">{formatUrl(url)}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                )
+            }
+        </div>
+
+        {
+            projectData.media && projectData.media.length > 0 && (
+                <div class="media">
+                    {projectData.media.map((img) => (
+                        <div class="media-frame">
+                            <Image
+                                src={img}
+                                alt={projectData.title}
+                                inferSize={true}
+                                class="media-item"
+                            />
+                        </div>
+                    ))}
+                </div>
+            )
+        }
+    </div>
+</section>
+
+<style>
+    section {
+        background: var(--color-secondary);
+        color: var(--color-primary);
+        padding: clamp(1rem, 5vw, 2rem);
+    }
+
+    .frontmatter {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .description {
+        font-size: clamp(0.95rem, 0.85rem + 0.4vw, 1.1rem);
+        line-height: 1.5;
+        max-width: 80ch;
+        margin-bottom: 1rem;
+    }
+
+    .links {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        padding: 0;
+        margin-bottom: 4rem;
+    }
+
+    .links a {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        padding: 0.5rem 0.9rem;
+        color: var(--color-primary);
+        text-decoration: none;
+        font-size: 0.75rem;
+        line-height: 1.4;
+        transition:
+            background-color 0.2s ease,
+            color 0.2s ease;
+    }
+
+    .links a:hover {
+        background-color: var(--color-primary);
+        color: var(--color-secondary);
+    }
+
+    .label {
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-weight: 700;
+        opacity: 0.7;
+    }
+
+    .links a:hover .label {
+        opacity: 1;
+    }
+
+    .url {
+        text-decoration: underline dotted;
+        text-underline-offset: 0.25rem;
+    }
+
+    .media {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .media-frame {
+        display: inline-flex;
+        padding: 1rem;
+        border: 2px dotted var(--color-primary);
+    }
+    .media-item {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    @media (max-width: 768px) {
+        .frontmatter {
+            flex-direction: column;
+        }
+    }
+</style>

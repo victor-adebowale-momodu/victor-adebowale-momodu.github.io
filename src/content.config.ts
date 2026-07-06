@@ -12,21 +12,22 @@ const quotes = defineCollection({
 
 const projects = defineCollection({
     loader: glob({ base: "./src/content/projects", pattern: "**/*.json" }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string(),
-        status: z
-            .enum(["completed", "in-progress", "archived"])
-            .default("completed"),
-        media: z.array(z.string()).optional(),
-        tags: z.array(z.string()).default([]),
-        links: z.object({
-            live: z.url().optional(),
-            github: z.url().optional(),
-            devlog: z.url().optional(),
-            demo: z.url().optional(),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            description: z.string(),
+            status: z
+                .enum(["completed", "in-progress", "archived"])
+                .default("completed"),
+            media: z.array(image()).optional(),
+            tags: z.array(z.string()).default([]),
+            links: z.object({
+                live: z.url().optional(),
+                github: z.url().optional(),
+                devlog: z.url().optional(),
+                demo: z.url().optional(),
+            }),
         }),
-    }),
 });
 
 const devlog = defineCollection({

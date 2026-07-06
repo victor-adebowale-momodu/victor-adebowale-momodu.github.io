@@ -5,23 +5,51 @@ description: >-
   My personal portfolio site. Built with Astro to keep things lightweight.
   Inspired by the layout of nomoredesign.co.uk. Designed to be a simple, fast
   place to host my projects and code.
-type: article
-draft: true
+type: devlog
+draft: false
 tags: []
 ---
-# Lorem Ipsum Test Document
+# Devlog: Building My Developer Website with Astro (v1)
 
-Lorem ipsum dolor sit amet, **consectetur adipiscing elit**,  sed do eiusmod tempor incididunt ut *labore et dolore magna aliqua*. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, **consectetur adipiscing elit**,  sed do eiusmod tempor incididunt ut *labore et dolore magna aliqua*. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+This devlog is about my experience cultivating my developer garden using **Astro**, while learning more about **CSS** and **CMSes**. It also touches on how I think frontend terms like SSR, SPA, and SSG made frontend feel a bit cumbersome(for me).
 
-## Introduction
+## Design Inspo
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+For the design, I took inspiration from [nomoredesign.co.uk](nomoredesign.co.uk), using it as a visual reference. Shout out to [Amit Chakrabarti](https://www.nomoredesign.co.uk/#).
 
-You can also include links:
+## Cascading Style Sheets + Astro
 
-- [Astro](https://astro.build)
-- [Keystatic](https://keystatic.com)
-- Cook spag
-- Don't cook spag
+My main goal with this project was to get more comfortable with CSS and understand how styling fits into real-world projects.
 
-> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+My gripe with CSS (specifically Tailwind CSS) is that it often makes code look very cluttered, and it also feels disorganised in how properties are structured. I believe that websites should be designed with a clear separation of concerns:
+
+- HTML for content,
+- CSS for styling, and
+- JavaScript for behaviour.
+
+This project was built using **Astro**, which turned out to be perfect framework for this kind of workflow. It follows a **static-first approach**, where pages are generated as static content, and interactivity is added only where needed.
+
+## Content Management
+
+Building this site helped me understand why WordPress powers a large portion of the web. Most sites are static (meaning their layouts remain the same while their content may change over time). And to manage the content, you need a Content Management System.\
+\
+So to manage the content on my page: quotes, projects, and devlog, I needed my own CMS, so I stumbled upon Keystatic, [which is an open-source, headless content-management system that allows you to structure your content and sync it with GitHub](%5Bhttps://docs.astro.build/en/guides/cms/keystatic/%5D\(https://docs.astro.build/en/guides/cms/keystatic/\)).\
+\
+Here is a blog exploring Keystatic: [https://armno.in.th/blog/exploring-keystatic/](https://armno.in.th/blog/exploring-keystatic/)\
+\
+It’s also worth noting that the tutorial I followed was based on **Astro v6**, so I made sure to refer to the latest Astro documentation for **Astro v7**, particularly around content collections:\
+[https://docs.astro.build/en/guides/content-collections/](https://docs.astro.build/en/guides/content-collections/)
+
+## Deployment
+
+The site is deployed on **GitHub Pages** as a fully static site.
+
+One more thing. While working with **Keystatic,** since I am the sole developer and content editor, so it makes sense to only enable Keystatic in the development environment.
+
+This means:
+
+- Keystatic runs locally during development
+- Content is stored and managed locally in the repo
+- The production build remains fully static and lightweight
+
+Should you have a different setup, it would be better to probably use something else.
