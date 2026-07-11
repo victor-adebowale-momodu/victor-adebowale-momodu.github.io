@@ -1,26 +1,26 @@
 ---
 interface Props {
-    icon: string;
-    alt: string;
-    size?: "small" | "medium" | "large";
-    width?: string;
-    height?: string;
-    color?: "primary" | "secondary";
+	icon: string;
+	alt: string;
+	size?: "small" | "medium" | "large";
+	width?: string;
+	height?: string;
+	color?: "primary" | "secondary";
 }
 
 const {
-    icon,
-    alt,
-    size = "medium",
-    width,
-    height,
-    color = "primary",
+	icon,
+	alt,
+	size = "medium",
+	width,
+	height,
+	color = "primary",
 } = Astro.props;
 
 const sizeMap = {
-    small: "24px",
-    medium: "clamp(32px, 5vw, 48px)",
-    large: "64px",
+	small: "24px",
+	medium: "clamp(32px, 5vw, 48px)",
+	large: "64px",
 };
 
 const resolvedSize = sizeMap[size];
@@ -28,7 +28,7 @@ const resolvedWidth = width ?? resolvedSize;
 const resolvedHeight = height ?? resolvedSize;
 
 const colorVar =
-    color === "secondary" ? "var(--color-secondary)" : "var(--color-primary)";
+	color === "secondary" ? "var(--color-secondary)" : "var(--color-primary)";
 ---
 
 <span class="icon-wrapper" set:html={icon} aria-label={alt} />

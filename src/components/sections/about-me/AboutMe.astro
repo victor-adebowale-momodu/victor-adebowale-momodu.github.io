@@ -1,32 +1,32 @@
 ---
 import githubIcon from "@/assets/icons/github.svg?raw";
+import linkIcon from "@/assets/icons/link.svg?raw";
 import linkedinIcon from "@/assets/icons/linkedin.svg?raw";
 import twitterIcon from "@/assets/icons/twitter.svg?raw";
-import linkIcon from "@/assets/icons/link.svg?raw";
 import ThemedIcon from "@/components/common/ThemedIcon.astro";
 
 interface Props {
-    showHeading?: boolean;
+	showHeading?: boolean;
 }
 
 const { showHeading = true } = Astro.props;
 
 const socialLinks = [
-    {
-        icon: githubIcon,
-        alt: "GitHub",
-        url: "https://github.com/victor-adebowale-momodu",
-    },
-    {
-        icon: linkedinIcon,
-        alt: "LinkedIn",
-        url: "https://linkedin.com/in/victor-adebowale-momodu",
-    },
-    {
-        icon: twitterIcon,
-        alt: "Twitter",
-        url: "https://twitter.com/victor-adebowale-momodu",
-    },
+	{
+		icon: githubIcon,
+		alt: "GitHub",
+		url: "https://github.com/victor-adebowale-momodu",
+	},
+	{
+		icon: linkedinIcon,
+		alt: "LinkedIn",
+		url: "https://linkedin.com/in/victor-adebowale-momodu",
+	},
+	{
+		icon: twitterIcon,
+		alt: "Twitter",
+		url: "https://twitter.com/victor-adebowale-momodu",
+	},
 ];
 ---
 

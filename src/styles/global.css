@@ -2,62 +2,62 @@
 @import "@fontsource-variable/inter";
 
 :root {
-    --color-primary: #f8f8f6;
-    --color-secondary: #171614;
-    --max-width: 1440px;
-    --font-space-grotesk: "Space Grotesk Variable", sans-serif;
-    --font-inter: "Inter Variable", sans-serif;
-    --gutter: clamp(1rem, 5vw, 3rem);
+	--color-primary: #f8f8f6;
+	--color-secondary: #171614;
+	--max-width: 1440px;
+	--font-space-grotesk: "Space Grotesk Variable", sans-serif;
+	--font-inter: "Inter Variable", sans-serif;
+	--gutter: clamp(1rem, 5vw, 3rem);
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
-    font-family: var(--font-space-grotesk);
-    line-height: 1.5;
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+	scroll-behavior: smooth;
+	font-family: var(--font-space-grotesk);
+	line-height: 1.5;
+	background-color: var(--color-primary);
+	color: var(--color-secondary);
 }
 
 body {
-    margin: 0;
+	margin: 0;
 }
 
 .container {
-    max-width: var(--max-width);
-    padding-inline: var(--gutter);
-    margin-inline: auto;
+	max-width: var(--max-width);
+	padding-inline: var(--gutter);
+	margin-inline: auto;
 }
 
 .overflow-guard {
-    overflow-x: hidden;
-    width: 100%;
+	overflow-x: hidden;
+	width: 100%;
 }
 
 .heading {
-    font-size: clamp(2.25rem, 8vw, 4rem);
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+	font-size: clamp(2.25rem, 8vw, 4rem);
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
 }
 
 .heading-link {
-    text-decoration: underline dotted;
-    text-underline-offset: 0.5rem;
-    color: inherit;
-    display: inline-block;
-    transition:
-        transform 0.2s ease,
-        text-decoration-color 0.2s ease;
+	text-decoration: underline dotted;
+	text-underline-offset: 0.5rem;
+	color: inherit;
+	display: inline-block;
+	transition:
+		transform 0.2s ease,
+		text-decoration-color 0.2s ease;
 }
 
 .heading-link:hover {
-    text-underline-offset: 0.25rem;
-    text-decoration: underline solid;
+	text-underline-offset: 0.25rem;
+	text-decoration: underline solid;
 }

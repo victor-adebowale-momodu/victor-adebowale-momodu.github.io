@@ -1,12 +1,12 @@
 ---
 import { getCollection } from "astro:content";
-import Item from "./Item.astro";
 import PageHeader from "@/components/common/PageHeader.astro";
+import Item from "./Item.astro";
 
 interface Props {
-    heading: string;
-    subtitle: string;
-    collection: "devlog" | "projects";
+	heading: string;
+	subtitle: string;
+	collection: "devlog" | "projects";
 }
 
 const { heading, subtitle, collection } = Astro.props;

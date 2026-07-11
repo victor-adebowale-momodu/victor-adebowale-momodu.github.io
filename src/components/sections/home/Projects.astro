@@ -1,9 +1,9 @@
 ---
-import linkIcon from "@/assets/icons/link.svg?raw";
+import { getCollection } from "astro:content";
 import arrowCircleLeft from "@/assets/icons/arrow-circle-left.svg?raw";
 import arrowCircleRight from "@/assets/icons/arrow-circle-right.svg?raw";
+import linkIcon from "@/assets/icons/link.svg?raw";
 import ThemedIcon from "@/components/common/ThemedIcon.astro";
-import { getCollection } from "astro:content";
 
 const projectCollection = await getCollection("projects");
 const projects = projectCollection.map((project) => project.data);

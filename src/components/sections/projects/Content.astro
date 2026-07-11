@@ -6,30 +6,29 @@ type Props = CollectionEntry<"projects">["data"];
 const projectData = Astro.props;
 
 function formatUrl(url: string) {
-    try {
-        const parsed = new URL(url);
-        return (
-            parsed.hostname.replace(/^www\./, "") +
-            parsed.pathname.replace(/\/$/, "")
-        );
-    } catch {
-        return url;
-    }
+	try {
+		const parsed = new URL(url);
+		return (
+			parsed.hostname.replace(/^www\./, "") + parsed.pathname.replace(/\/$/, "")
+		);
+	} catch {
+		return url;
+	}
 }
 
 const linkTypes = [
-    { key: "live", label: "live" },
-    { key: "github", label: "source" },
-    { key: "devlog", label: "devlog" },
-    { key: "demo", label: "demo" },
+	{ key: "live", label: "live" },
+	{ key: "github", label: "source" },
+	{ key: "devlog", label: "devlog" },
+	{ key: "demo", label: "demo" },
 ] as const;
 
 const links = linkTypes
-    .filter(({ key }) => projectData.links[key])
-    .map(({ key, label }) => ({
-        label,
-        url: projectData.links[key] as string,
-    }));
+	.filter(({ key }) => projectData.links[key])
+	.map(({ key, label }) => ({
+		label,
+		url: projectData.links[key] as string,
+	}));
 ---
 
 <section>

@@ -1,17 +1,12 @@
 {
-  "title": "Victor Adebowale Momodu - Portfolio Website",
-  "description": "My personal portfolio site. Built with Astro to keep things lightweight. Inspired by nomoredesign.co.uk. Designed to be your access to my developer garden.",
-  "status": "in-progress",
-  "media": [
-    "@/assets/images/victor-adebowale-momodu.github.io-1920x1200.png"
-  ],
-  "tags": [
-    "astro",
-    "frontend"
-  ],
-  "links": {
-    "live": "https://victor-adebowale-momodu.github.io",
-    "github": "https://github.com/victor-adebowale-momodu/victor-adebowale-momodu.github.io",
-    "devlog": "https://victor-adebowale-momodu.github.io/devlog/my-developer-garden"
-  }
+	"title": "Victor Adebowale Momodu - Portfolio Website",
+	"description": "My personal portfolio site. Built with Astro to keep things lightweight. Inspired by nomoredesign.co.uk. Designed to be your access to my developer garden.",
+	"status": "in-progress",
+	"media": ["@/assets/images/victor-adebowale-momodu.github.io-1920x1200.png"],
+	"tags": ["astro", "frontend"],
+	"links": {
+		"live": "https://victor-adebowale-momodu.github.io",
+		"github": "https://github.com/victor-adebowale-momodu/victor-adebowale-momodu.github.io",
+		"devlog": "https://victor-adebowale-momodu.github.io/devlog/my-developer-garden"
+	}
 }
