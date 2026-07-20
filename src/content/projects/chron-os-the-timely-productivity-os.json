@@ -1,0 +1,17 @@
+{
+  "title": "ChronOS - The Timely Productivity OS",
+  "description": "ChronOS, a local-first Pomodoro timer using Vite and a custom string-based templating system to better understand component architecture, state management, and Progressive Web Apps, is built piece by piece.",
+  "status": "in-progress",
+  "media": [
+    "@/assets/images/chronos-518x1012.png"
+  ],
+  "tags": [
+    "frontend",
+    "fastapi",
+    "vite"
+  ],
+  "links": {
+    "live": "https://chronos-h79o.onrender.com",
+    "github": "https://github.com/victor-adebowale-momodu/chronos"
+  }
+}
